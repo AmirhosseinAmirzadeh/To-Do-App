@@ -1,6 +1,6 @@
 # general modules
 django>4.2,<5
-
+python-decouple
 
 # third party modules
 
