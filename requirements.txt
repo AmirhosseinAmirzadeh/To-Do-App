@@ -1,0 +1,8 @@
+# general modules
+django>4.2,<5
+
+
+# third party modules
+
+
+# deployment modules
