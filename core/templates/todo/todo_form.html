@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="d-flex flex-column flex-md-row p-3 align-items-center justify-content-center">
+  <h2>Todo List</h2>
+</div>
+
+<div class="d-flex flex-column flex-md-row p-6 gap-4 py-md-5 align-items-center justify-content-center">
+  <div class="list-group">
+    <form method="post" action="{% url 'todo:todo-create' %}">
+      {% csrf_token %}
+      <label class="list-group-item d-flex gap-3 bg-body-tertiary">
+        <span class="pt-1 form-checked-content">
+          <input name="title" type="text" class="form-control" id="floatingInput" placeholder="Add new task ...">
+        </span>
+        <input name="due_time" type="datetime-local" class="btn btn-secondary rounded-pill px-1" value="due_time"></input>
+        <button class="btn btn-success rounded-pill px-3" type="submit">Add</button>
+      </label>
+    </form>
+    {% for task in tasks %}
+    <label class="list-group-item d-flex gap-3">
+      <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked style="font-size: 1.375em;">
+      <span class="pt-1 form-checked-content">
+        <strong>{{task.title}}</strong>
+        <small class="d-block text-body-secondary">
+          <svg class="bi me-1" width="1em" height="1em"><use xlink:href="#calendar-event"/></svg>
+          {{task.due_time}}
+        </small>
+      </span>
+    </label>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

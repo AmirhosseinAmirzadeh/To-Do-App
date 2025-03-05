@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="d-flex flex-column flex-md-row p-3 align-items-center justify-content-center">
+  <h2>Todo List</h2>
+</div>
+
+<div class="d-flex flex-column flex-md-row p-6 gap-4 py-md-5 align-items-center justify-content-center">
+  <div class="list-group">
+    <form method="post" action="{% url 'todo:todo-update' pk=task.id %}">
+      {% csrf_token %}
+      <label class="list-group-item d-flex gap-1 bg-body-tertiary">
+        <span class="pt-1 form-checked-content">
+          <input name="title" type="text" class="form-control" id="floatingInput" value="{{task.title}}">
+        </span>
+        <input name="due_time" type="datetime-local" class="btn btn-secondary rounded-pill px-1"
+          value="{{ task.due_time|date:'Y-m-d\TH:i' }}">
+        <button class="btn btn-success rounded-pill px-3" type="submit">Update</button>
+      </label>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
