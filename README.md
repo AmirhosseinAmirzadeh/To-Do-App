@@ -19,7 +19,7 @@ This project is a simple **Todo Application** built with **Django** and containe
 
 - Docker
 - Docker Compose
-- Python 3.x (for local development without Docker, if necessary)
+- Python 3.10 (for local development without Docker, if necessary)
 
 ## Setup and Installation
 
