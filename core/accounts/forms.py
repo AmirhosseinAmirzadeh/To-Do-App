@@ -1,15 +1,11 @@
-from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import forms as auth_forms
+from django.core.exceptions import ValidationError
 from .models import User
 
-class RegisterationForm(forms.Form):
+
+class RegisterationForm(UserCreationForm):
     "A form for custom registration"
     class Meta:
         model = User
-        fields = ['email', 'password', 'password2']
-        
-        
-class LoginForm(forms.Form):
-    "A form for custom login"
-    class Meta:
-        model = User
-        fields = ['email', 'password']
+        fields = ['email', 'password1', 'password2']
