@@ -1,8 +1,10 @@
 # general modules
 django>4.2,<5
 python-decouple
+djangorestframework
 
 # third party modules
-
+markdown
+django-filter
 
 # deployment modules
