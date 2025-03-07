@@ -16,4 +16,9 @@ class TodoSerializer(serializers.ModelSerializer):
         model = Todo
         fields = ['user', 'title', 'due_time', 'complete', 'created_date', 'updated_date']
         read_only_fields = ['user']
+        
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation.pop('user', None)
+        return representation
     
