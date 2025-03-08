@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'todo',
     'rest_framework',
     'django_filters',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -148,3 +149,6 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ]
 }
+
+# API Documentation Schema
+REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
